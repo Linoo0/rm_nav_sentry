@@ -136,7 +136,7 @@ include_directories(
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
 add_executable(sentry_send src/serial_send.cpp)
-
+add_executable(con_node src/con_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -151,7 +151,9 @@ add_executable(sentry_send src/serial_send.cpp)
 target_link_libraries(sentry_send
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(con_node
+  ${catkin_LIBRARIES}
+)
 #############
 ## Install ##
 #############

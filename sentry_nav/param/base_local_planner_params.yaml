@@ -33,8 +33,8 @@
   # =================== segement ===============
 base_local_planner: "dwa_local_planner/DWAPlannerROS"
 
-controller_frequency: 20      # 20.0
-# controller_patience:  15.0      # 15.0
+controller_frequency: 10     # 20.0
+controller_patience:  6.0      # 15.0
 
 DWAPlannerROS:
   odom_topic: Odometry
@@ -47,8 +47,8 @@ DWAPlannerROS:
 
   # Forward simulation          Defaults
   use_dwa: true                 # true
-  sim_time: 2.0                 # 1.7
-  sim_granularity: 0.07       # 0.025
+  sim_time: 2.5                 # 1.7
+  sim_granularity: 0.08       # 0.025
   angular_sim_granularity: 0.1 # 0.10 (1 degree = 0.017 rad)
   vx_samples: 15               # 3
   vy_samples: 15               # 10
@@ -58,7 +58,7 @@ DWAPlannerROS:
 
   # Scoring                     Defaults
   # meter_scoring: false          # Is this even taken into account?
-  # path_distance_bias: 1.00      # 32.0
+  # path_distance_bias: 90.00      # 32.0
   goal_distance_bias: 24     # 24.0
   # occdist_scale: 0.01           # 0.01
   # forward_point_distance: 0.325 # 0.325
@@ -72,19 +72,26 @@ DWAPlannerROS:
 
   # Acceleration and velocity limits
 
-  acc_limit_trans: 10
+  # acc_limit_trans: 10
+  acc_lim_trans: 10
+
   acc_lim_x: 10.0                # 2.5
   acc_lim_y: 10.0                # 2.5
   # acc_lim_theta: 1.0            # 3.2
 
-  max_trans_vel: 1
-  min_trans_vel: 0.4
+  # max_trans_vel: 1
+  # min_trans_vel: 0.4
+  max_vel_trans: 1
+  min_vel_trans: 0.4
   max_vel_x: +1
   min_vel_x: -1
   max_vel_y: +1
   min_vel_y: -1
-  max_rot_vel: 1.0
-  min_rot_vel: 0.4
+  # max_rot_vel: 1.0               #旋转速度
+  # min_rot_vel: 0.4
+  max_vel_theta: 0               #旋转速度  1.0 0.4
+  min_vel_theta: 0
+
 
   # Other                       Defaults
   oscillation_reset_dist: 0.1  # 0.05

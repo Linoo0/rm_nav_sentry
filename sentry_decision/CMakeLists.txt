@@ -10,6 +10,7 @@ project(sentry_decision)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  serial
   std_msgs
 )
 
@@ -135,7 +136,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/sentry_decision_node.cpp)
 add_executable(random_deci src/random_deci.cpp)
-
+add_executable(Goal_node src/Goal_node.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -153,7 +154,9 @@ add_executable(random_deci src/random_deci.cpp)
 target_link_libraries(random_deci
   ${catkin_LIBRARIES}
 )
-
+target_link_libraries(Goal_node
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##
